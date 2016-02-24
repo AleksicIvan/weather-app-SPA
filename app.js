@@ -12,6 +12,10 @@ var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource']);
        templateUrl: 'pages/forecast.html',
        controller: 'ForecastCtrl'
       }).
+      when('/forecast/:days', {
+       templateUrl: 'pages/forecast.html',
+       controller: 'ForecastCtrl'
+      }).
       otherwise({
        redirectTo: '/'
       });
@@ -19,7 +23,7 @@ var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource']);
 
   //SERVICES
   weatherApp.service('citySevice', function(){
-      this.city = "Beograd";
+      this.city = "Belgrade";
   });
 
   //CONTROLLERS
@@ -45,7 +49,7 @@ var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource']);
 				return Math.round(degK - 273.15);
 			};
 
-      //converting Date to human readable date
+      //converting Date
 			$scope.convertToDate = function(dt){
 				return new Date(dt * 1000);
 			};
