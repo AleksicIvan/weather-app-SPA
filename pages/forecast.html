@@ -1,13 +1,16 @@
+<p>
+  <a href="#/">Back to search</a>
+</p>
 <h3>Forecast for {{ city }}</h3>
 <hr />
-Days: <a href="#/forecast/2">2</a> | <a href="#/forecast/5">5</a> | <a href="#/forecast/7">7</a> | <a href="#/forecast/14">Two Weeks</a>
+Days: <a href="#/forecast/2" ng-class="{'bg-primary': days === '2'}">2</a> | <a href="#/forecast/5" ng-class="{'bg-primary': days === '5'}">5</a> | <a href="#/forecast/7" ng-class="{'bg-primary': days === '7'}">7</a> | <a href="#/forecast/14" ng-class="{'bg-primary': days === '14'}">Two Weeks</a>
 <hr />
 <div ng-repeat="w in weatherResult.list">
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"><strong>{{ convertToDate(w.dt) | date: 'EEE dd.MMM.y' }}</strong></h3>
+          <h3 class="panel-title"><strong>{{ convertToDate(w.dt) | date: 'EEE dd MMMM y' }}</strong></h3>
         </div>
         <div class="panel-body">
           Daytime temperature: {{ weatherToCelsius(w.temp.day) }} |
