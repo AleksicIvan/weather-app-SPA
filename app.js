@@ -17,11 +17,19 @@ var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource']);
       });
   });
 
-  //CONTROLLERS
-  weatherApp.controller('HomeCtrl', ['$scope', function ($scope) {
+  //SERVICES
+  weatherApp.service('citySevice', function(){
+      this.city = "Beograd";
+  });
 
+  //CONTROLLERS
+  weatherApp.controller('HomeCtrl', ['$scope','citySevice', function ($scope, cityService) {
+      $scope.city = cityService.city;
+      $scope.$watch('city', function(){
+        cityService.city = $scope.city;
+      })
   }]);
 
-  weatherApp.controller('ForecastCtrl', ['$scope', function ($scope) {
-
+  weatherApp.controller('ForecastCtrl', ['$scope', 'citySevice', function ($scope, cityService) {
+      $scope.city = cityService.city;
   }]);
