@@ -1,13 +1,18 @@
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"><strong>{{ convertToDate({ dt: weatherDay.dt }) | date: dateFormat }}</strong></h3>
-  </div>
-  <div class="panel-body">
-    Daytime temperature: {{ convertToStandard({ temperature: weatherDay.temp.day }) }} |
-    Min. temperature: {{ convertToStandard({ temperature: weatherDay.temp.min }) }} |
-    Max. temperature: {{ convertToStandard({ temperature: weatherDay.temp.max }) }} |
-    Night temperature: {{ convertToStandard({ temperature: weatherDay.temp.night }) }} |
-    Evening temperature: {{ convertToStandard({ temperature: weatherDay.temp.eve }) }} |
-    Morning temperature: {{ convertToStandard({ temperature: weatherDay.temp.morn }) }} |
-  </div>
+    <div class="panel-heading">
+        <h3 class="panel-title"><strong>{{ convertToDate({ dt: weatherDay.dt }) | date: dateFormat }}</strong></h3>
+    </div>
+      <div class="panel-body">
+          Daytime temperature: {{ convertToStandard({ temperature: weatherDay.temp.day }) }}&#8451; |
+          Min. temperature: {{ convertToStandard({ temperature: weatherDay.temp.min }) }}&#8451; |
+          Max. temperature: {{ convertToStandard({ temperature: weatherDay.temp.max }) }}&#8451; |
+          Night temperature: {{ convertToStandard({ temperature: weatherDay.temp.night }) }}&#8451; |
+          Evening temperature: {{ convertToStandard({ temperature: weatherDay.temp.eve }) }}&#8451; |
+          Morning temperature: {{ convertToStandard({ temperature: weatherDay.temp.morn }) }}&#8451; |
+    </div>
+    <div class="panel-body">
+        Conditions: {{ weatherDay.weather[0]["main"] }} |
+        Description: {{ weatherDay.weather[0]["description"] }} |
+        Wind Speed: {{ weatherDay.speed }}m/s
+    </div>
 </div>
