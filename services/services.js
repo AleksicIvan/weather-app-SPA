@@ -1,3 +1,3 @@
-weatherApp.service('citySevice', function(){
+weatherApp.service('cityService', function(){
     this.city = "Belgrade";
 });
